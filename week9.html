@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Week 9: Number Theory</title>
+        <meta charset="utf-8">
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Patua+One);
+            @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+            @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+            body {
+                font-family: 'Droid Serif', Serif;
+            }
+            h1, h2, h3 {
+                font-family: 'Patua One', Serif;
+                font-weight: normal;
+            }
+            .remark-code, .remark-inline-code {
+                font-family: 'Ubuntu Mono', Monospace;
+            }
+            .remark-code {
+                font-size: 120%;
+            }
+            textarea {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+            }
+            p, li {
+                font-size: 120%;
+            }
+        </style>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(', '\\)']],
+                    processEscapes: true
+                }
+            });
+        </script>
+        <script async
+                src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+        </script>
+    </head>
+    <body>
+        <textarea id="source">
+            class: center, middle
+
+            # Number Theory
+
+            ---
+
+            # What is Number Theory?
+
+            Number theory is the study of integers. We can use many concepts from number
+            theory in programming, since we're almost always dealing with integers.
+
+            ---
+
+            # Topics for today
+
+            * Modular Arithmetic
+            * Greatest Common Divisor / Least Common Multiple
+            * Primality detection
+            * Finding primes
+            * Factorization
+
+            ---
+
+            # Modular Arithmetic
+
+            Many problem statements in competitive programming dealing with large numbers
+            end with "output the number modulo 1000000007 (`1e9 + 7`)
+
+            Why this number?
+
+            How can we use this to our advantage?
+
+            ---
+
+            # Divisability
+
+            Here and in the rest of the lecture, assume all variables are integers.
+
+            We say that "$a$ divides $b$" if there exists an integer $k$ such that $ak =
+            b$.
+
+            Equivalently, dividing $b$ by $a$ gives no remainder.
+
+            That remainder is given by the modulus operator&mdash;`%` in most
+            languages&mdash;so `b % a == 0` if and only if `a` divides `b`.
+
+            ---
+
+            # Properties of the Modulus operator
+
+            Assume we have two positive integers `a` and `b`
+
+            Possible values of `a % b` are in the set $\\{0, 1, ..., b-1\\}$.
+
+            Useful properties: distributivity under addition, subtraction, and
+            multiplication.
+            * `(a + b) % n = ((a % n) + (b % n)) % n`
+            * `(a - b) % n = ((a % n) - (b % n) + n) % n`
+            * `(a * b) % n = ((a % n) * (b % n)) % n`
+            * **NOT** over division. Counterexample: <br />
+              `(12 / 2) % 4 = 6 % 4 = 2`, but <br />
+              `((12 % 4) / (2 % 4)) % 4 = (0 / 2) % 4 = 0 % 4 = 0`.
+
+            ---
+
+            # Fundamental Theorem of Arithmetic
+
+            Any positive integer greater than 1 has a unique prime factorization into a
+            product of powers of primes.
+
+            $72 = 2^3 \cdot 3^2$
+
+            $5 = 5^1$
+
+            ---
+
+            # Greatest Common Divisor (GCD)
+
+            The greatest common divisor of a set of integers $\\{a_1, a_2, ..., a_k\\}$ is
+            the largest integer that divides every number in the set.
+
+            Examples:
+            * $\mathrm{GCD}(12, 24, 144) = 12$
+            * $\mathrm{GCD}(56, 42, 126, 28) = 14$
+            * $\mathrm{GCD}(3, 5, 7) = 1$
+
+            ---
+
+            # Least Common Multiple (LCM)
+
+            The least common multiple of a set of integers $\\{a_1, a_2, ..., a_k\\}$ is
+            the smallest integer that is a multiple of every number in the set.
+
+            Examples:
+            * $\mathrm{LCM}(5, 6) = 30$
+            * $\mathrm{LCM}(20, 15) = 60$
+            * $\mathrm{LCM}(1, 2, 3, 4, 5, 6) = 120$
+
+            ---
+
+            # Euclid's Algorithm
+
+            The GCD can be computed using Euclid's Algorithm:
+
+            ```javascript
+            function gcd(a, b) {
+                if b == 0
+                    return a
+                else
+                    return gcd(b, a % b)
+            }
+            ```
+
+            Why does this work? Can a similar algorithm find the LCM?
+
+            ---
+
+            # Prime detection: trial division
+
+            A prime is an integer whose only positive divisors are 1 and itself.
+
+            Naïve `isPrime(x)` function: check all numbers between $2$ and $x - 1$ and
+            check if they're divisors.
+
+            Runtime? What if you ignore even numbers? Any way to further reduce the
+            runtime of this algorithm?
+
+            ---
+
+            # Trial Division
+
+            If a number $x$ has a divisor $d$ above $\sqrt{x}$, then $x / d &lt; \sqrt{x}$.
+        </textarea>
+        <script
+                 src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+        </script>
+        <script>
+            //var slideshow = remark.create();
+            var slideshow = remark.create({
+                highlightStyle: 'magula'
+            });
+        </script>
+    </body>
+</html>
