@@ -47,144 +47,267 @@
     </head>
     <body>
         <textarea id="source">
-            class: center, middle
+        class: center, middle
 
-            # Number Theory
+        # Number Theory
 
-            ---
+        ---
 
-            # What is Number Theory?
+        # What is Number Theory?
 
-            Number theory is the study of integers. We can use many concepts from number
-            theory in programming, since we're almost always dealing with integers.
+        Number theory is the study of integers. We can use many concepts from number
+        theory in programming, since we're almost always dealing with integers.
 
-            ---
+        ---
 
-            # Topics for today
+        # Topics for today
 
-            * Modular Arithmetic
-            * Greatest Common Divisor / Least Common Multiple
-            * Primality detection
-            * Finding primes
-            * Factorization
+        * Modular Arithmetic
+        * Greatest Common Divisor / Least Common Multiple
+        * Primality detection
+        * Finding primes
+        * Factorization
 
-            ---
+        ---
 
-            # Modular Arithmetic
+        # Modular Arithmetic
 
-            Many problem statements in competitive programming dealing with large numbers
-            end with "output the number modulo 1000000007 (`1e9 + 7`)
+        Many problem statements in competitive programming dealing with large numbers
+        end with "output the number modulo 1000000007 (`1e9 + 7`)
 
-            Why this number?
+        Why this number?
 
-            How can we use this to our advantage?
+        How can we use this to our advantage?
 
-            ---
+        ---
 
-            # Divisability
+        # Divisability
 
-            Here and in the rest of the lecture, assume all variables are integers.
+        Here and in the rest of the lecture, assume all variables are integers.
 
-            We say that "$a$ divides $b$" if there exists an integer $k$ such that $ak =
-            b$.
+        We say that "$a$ divides $b$" if there exists an integer $k$ such that $ak =
+        b$.
 
-            Equivalently, dividing $b$ by $a$ gives no remainder.
+        Equivalently, dividing $b$ by $a$ gives no remainder.
 
-            That remainder is given by the modulus operator&mdash;`%` in most
-            languages&mdash;so `b % a == 0` if and only if `a` divides `b`.
+        That remainder is given by the modulus operator&mdash;`%` in most
+        languages&mdash;so `b % a == 0` if and only if `a` divides `b`.
 
-            ---
+        ---
 
-            # Properties of the Modulus operator
+        # Properties of the Modulus operator
 
-            Assume we have two positive integers `a` and `b`
+        Assume we have two positive integers `a` and `b`
 
-            Possible values of `a % b` are in the set $\\{0, 1, ..., b-1\\}$.
+        Possible values of `a % b` are in the set $\\{0, 1, ..., b-1\\}$.
 
-            Useful properties: distributivity under addition, subtraction, and
-            multiplication.
-            * `(a + b) % n = ((a % n) + (b % n)) % n`
-            * `(a - b) % n = ((a % n) - (b % n) + n) % n`
-            * `(a * b) % n = ((a % n) * (b % n)) % n`
-            * **NOT** over division. Counterexample: <br />
-              `(12 / 2) % 4 = 6 % 4 = 2`, but <br />
-              `((12 % 4) / (2 % 4)) % 4 = (0 / 2) % 4 = 0 % 4 = 0`.
+        Useful properties: distributivity under addition, subtraction, and
+        multiplication.
+        * `(a + b) % n = ((a % n) + (b % n)) % n`
+        * `(a - b) % n = ((a % n) - (b % n) + n) % n`
+        * `(a * b) % n = ((a % n) * (b % n)) % n`
+        * **NOT** over division. Counterexample: <br />
+        `(12 / 2) % 4 = 6 % 4 = 2`, but <br />
+        `((12 % 4) / (2 % 4)) % 4 = (0 / 2) % 4 = 0 % 4 = 0`.
 
-            ---
+        ---
 
-            # Fundamental Theorem of Arithmetic
+        # Fundamental Theorem of Arithmetic
 
-            Any positive integer greater than 1 has a unique prime factorization into a
-            product of powers of primes.
+        Any positive integer greater than 1 has a unique prime factorization into a
+        product of powers of primes.
 
-            $72 = 2^3 \cdot 3^2$
+        $72 = 2^3 \cdot 3^2$
 
-            $5 = 5^1$
+        $5 = 5^1$
 
-            ---
+        ---
 
-            # Greatest Common Divisor (GCD)
+        # Greatest Common Divisor (GCD)
 
-            The greatest common divisor of a set of integers $\\{a_1, a_2, ..., a_k\\}$ is
-            the largest integer that divides every number in the set.
+        The greatest common divisor of a set of integers $\\{a_1, a_2, ..., a_k\\}$ is
+        the largest integer that divides every number in the set.
 
-            Examples:
-            * $\mathrm{GCD}(12, 24, 144) = 12$
-            * $\mathrm{GCD}(56, 42, 126, 28) = 14$
-            * $\mathrm{GCD}(3, 5, 7) = 1$
+        Examples:
+        * $\mathrm{GCD}(12, 24, 144) = 12$
+        * $\mathrm{GCD}(56, 42, 126, 28) = 14$
+        * $\mathrm{GCD}(3, 5, 7) = 1$
 
-            ---
+        ---
 
-            # Least Common Multiple (LCM)
+        # Least Common Multiple (LCM)
 
-            The least common multiple of a set of integers $\\{a_1, a_2, ..., a_k\\}$ is
-            the smallest integer that is a multiple of every number in the set.
+        The least common multiple of a set of integers $\\{a_1, a_2, ..., a_k\\}$ is
+        the smallest integer that is a multiple of every number in the set.
 
-            Examples:
-            * $\mathrm{LCM}(5, 6) = 30$
-            * $\mathrm{LCM}(20, 15) = 60$
-            * $\mathrm{LCM}(1, 2, 3, 4, 5, 6) = 120$
+        Examples:
+        * $\mathrm{LCM}(5, 6) = 30$
+        * $\mathrm{LCM}(20, 15) = 60$
+        * $\mathrm{LCM}(1, 2, 3, 4, 5, 6) = 120$
 
-            ---
+        ---
 
-            # Euclid's Algorithm
+        # Euclid's Algorithm
 
-            The GCD can be computed using Euclid's Algorithm:
+        The GCD can be computed using Euclid's Algorithm:
 
-            ```javascript
-            function gcd(a, b) {
-                if b == 0
-                    return a
-                else
-                    return gcd(b, a % b)
+        ```javascript
+        function gcd(a, b) {
+        if b == 0
+            return a
+        else
+            return gcd(b, a % b)
+        }
+        ```
+
+        Why does this work? Can a similar algorithm find the LCM?
+
+        ---
+
+        # Prime detection: Trial Division
+
+        A prime is an integer whose only positive divisors are 1 and itself.
+
+        Naïve `isPrime(x)` function: check all numbers between $2$ and $x - 1$ and
+        check if they're divisors.
+
+        Runtime? What if you ignore even numbers? Any way to further reduce the
+        runtime of this algorithm?
+
+        ---
+
+        # Prime detection: Trial Division (cont'd)
+
+        If a number $x$ has a divisor $d$ such that $d &gt; \sqrt{x}$, then $x / d
+        &lt; \sqrt{x}$.
+
+        If we know that $d \cdot y = x$, and we know $d$, we can find $y$.
+
+        Thus, we need to only manually check up to $\sqrt{x}$.
+
+        ---
+
+        # Prime detection: Sieve of Eratosthenes
+
+        This is a process of elimination to find primes. Take an upper bound $N$ on the
+        largest prime you care about. Then an array of size $N + 1$ (because it
+        includes 0) can hold primality for any number in range.
+
+        To start with, assume everything except 0 and 1 is prime (since we don't know
+        any better yet). What can we exclude?
+
+        ---
+
+        # Prime detection: Sieve of Eratosthenes (cont'd)
+
+        Well, 2 is prime, but no other even number is&mdash;no multiple of 2. So loop
+        up through the multiples of two (starting with 4) and knock them out (set
+        their value in the array to `false`).
+
+        Now, 3 (the next `true` value in the array) is certainly prime. Again, none of
+        its multiples are, so loop up through the multiples of three (starting with 6)
+        and knock them out two.
+
+        Four has been knocked out, so skip over it. Five is our next `true` value, so
+        it's prime, and we knock out its multiples, and so on.
+
+        ---
+
+        # Prime detection: Sieve of Eratosthenes (cont'd)
+
+        Some optimizations:
+        * Looping from 0 to $N$ is fine, but it's faster to do the 2-case on its own,
+        then loop over odd numbers from 3 to $N$.
+        * Every other multiple of an odd number is even, and thus has been knocked out
+        in the 2-case. So we need only check every *other* multiple.
+
+        ---
+
+        # Example Sieve of Eratosthenes
+
+        ```java
+        boolean[] isPrime = new boolean[N];
+        Arrays.fill(isPrime, true);
+        isPrime[0] = isPrime[1] = false;
+
+        for (int p = 2; i &lt; N; p++) {
+            if (!isPrime[p]) continue;
+            for (int i = p * 2; i &lt; N; i += p) {
+                isPrime[i] = false;
             }
-            ```
+        }
+        ```
+        ---
 
-            Why does this work? Can a similar algorithm find the LCM?
+        # Example Sieve of Eratosthenes With Optimization
+        ```java
+        boolean[] isPrime = new boolean[N];
+        Arrays.fill(isPrime, true);
+        isPrime[0] = isPrime[1] = false;
 
-            ---
+        for (int p = 2; p &lt; N; p += 2)
+            isPrime[p] = false;
+        for (int p = 3; p &lt; N; p += 2) {
+            if (!isPrime[p]) continue;
+            for (int i = p * 2; i &lt; N; i += p * 2) {
+                isPrime[i] = false;
+            }
+        }
+        ```
 
-            # Prime detection: trial division
+        ---
 
-            A prime is an integer whose only positive divisors are 1 and itself.
+        # Prime Factorization with the Sieve
 
-            Naïve `isPrime(x)` function: check all numbers between $2$ and $x - 1$ and
-            check if they're divisors.
+        So, we can use the normal Sieve to find all prime numbers up to $N$. But we can do
+        more with this concept, and it's awesome.
 
-            Runtime? What if you ignore even numbers? Any way to further reduce the
-            runtime of this algorithm?
+        Initialize each index's value to that index. Instead of setting values to false
+        when we "knock something out", instead store the value that did the knocking-out.
 
-            ---
+        ---
 
-            # Trial Division
+        # Prime Factorization with the Sieve (cont'd)
 
-            If a number $x$ has a divisor $d$ above $\sqrt{x}$, then $x / d &lt; \sqrt{x}$.
+        Now each slot in the array holds a prime number. In particular, it holds the
+        largest prime number that divides that slot's index (unles the index is even, in
+        which case it just holds $2$).
+
+        Note that we still have `isPrime` from this: if the value in slot $x$ is $x$
+        itself, then $x$ must be prime.
+
+        Then with a very simple tiny loop, we can easily get all the prime factors!
+
+        ---
+
+        # Example Modified Sieve
+
+        ```java
+        int[] sieve = new int[N];
+        sieve[0] = sieve[1] = 0; // not prime, but no better value.
+
+        for (int p = 2; p &lt; N; p += 2)
+            sieve[p] = 2;
+        for (int p = 3; p &lt; N; p += 2)
+            if (sieve[p] != p) continue;
+            for (int i = p * 2; i &lt; N; i += p * 2) {
+                sieve[i] = p;
+
+        List<Integer> getFactors(int n) {
+            List<Integer> factors = new LinkedList<>();
+            while (n > 1) {
+                factors.add(sieve[n]);
+                n /= sieve[n];
+            }
+            return factors;
+        }
+        ```
+
         </textarea>
         <script
                  src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
         </script>
         <script>
-            //var slideshow = remark.create();
             var slideshow = remark.create({
                 highlightStyle: 'magula'
             });
