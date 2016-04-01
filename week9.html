@@ -249,7 +249,7 @@
             isPrime[p] = false;
         for (int p = 3; p &lt; N; p += 2) {
             if (!isPrime[p]) continue;
-            for (int i = p * 2; i &lt; N; i += p * 2) {
+            for (int i = p * 3; i &lt; N; i += p * 2) {
                 isPrime[i] = false;
             }
         }
@@ -270,7 +270,7 @@
         # Prime Factorization with the Sieve (cont'd)
 
         Now each slot in the array holds a prime number. In particular, it holds the
-        largest prime number that divides that slot's index (unles the index is even, in
+        largest prime number that divides that slot's index (unless the index is even, in
         which case it just holds $2$).
 
         Note that we still have `isPrime` from this: if the value in slot $x$ is $x$
@@ -290,7 +290,7 @@
             sieve[p] = 2;
         for (int p = 3; p &lt; N; p += 2)
             if (sieve[p] != p) continue;
-            for (int i = p * 2; i &lt; N; i += p * 2) {
+            for (int i = p * 3; i &lt; N; i += p * 2) {
                 sieve[i] = p;
 
         List<Integer> getFactors(int n) {
