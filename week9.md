@@ -1,44 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Week 9: Number Theory</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
-        <style>
-            @import url(https://fonts.googleapis.com/css?family=Patua+One);
-            @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-            @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-
-            body {
-                font-family: 'Droid Serif', Serif;
-            }
-            h1, h2, h3 {
-                font-family: 'Patua One', Serif;
-                font-weight: normal;
-            }
-            .remark-code, .remark-inline-code {
-                font-family: 'Ubuntu Mono', Monospace;
-            }
-            .remark-code {
-                font-size: 120%;
-            }
-            textarea {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                width: 100%;
-            }
-            p, li {
-                font-size: 120%;
-            }
-        </style>
-    </head>
-    <body>
-        <textarea id="source">
-class: center, middle
 # Number Theory
 
 ---
@@ -96,8 +55,8 @@ Useful properties: distributivity under addition, subtraction, and
     * `(a - b) % n = ((a % n) - (b % n) + n) % n`
     * `(a * b) % n = ((a % n) * (b % n)) % n`
     * **NOT** over division. Counterexample: <br />
-        `(12 / 2) % 4 = 6 % 4 = 2`, but <br />
-        `((12 % 4) / (2 % 4)) % 4 = (0 / 2) % 4 = 0 % 4 = 0`.
+    `(12 / 2) % 4 = 6 % 4 = 2`, but <br />
+    `((12 % 4) / (2 % 4)) % 4 = (0 / 2) % 4 = 0 % 4 = 0`.
 
 ---
 
@@ -292,24 +251,3 @@ List<Integer> getFactors(int n) {
     return factors;
 }
 ```
-        </textarea>
-        <script
-                src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
-        </script>
-        <script
-                src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js">
-        </script>
-        <script
-                src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/contrib/auto-render.min.js">
-        </script>
-        <script>
-            var slideshow = remark.create({
-                highlightStyle: 'magula'
-            });
-            renderMathInElement(document.body, {delimiters: [
-                {left: "$", right: "$", display: false},
-                {left: "\\[", right: "\\]", display: true}
-            ]});
-        </script>
-    </body>
-</html>
