@@ -3,6 +3,8 @@
     <head>
         <title>Week 9: Number Theory</title>
         <meta charset="utf-8">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
         <style>
             @import url(https://fonts.googleapis.com/css?family=Patua+One);
             @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
@@ -33,17 +35,6 @@
                 font-size: 120%;
             }
         </style>
-        <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({
-                tex2jax: {
-                    inlineMath: [['$','$'], ['\\(', '\\)']],
-                    processEscapes: true
-                }
-            });
-        </script>
-        <script async
-                src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
-        </script>
     </head>
     <body>
         <textarea id="source">
@@ -249,7 +240,7 @@
             isPrime[p] = false;
         for (int p = 3; p &lt; N; p += 2) {
             if (!isPrime[p]) continue;
-            for (int i = p * 3; i &lt; N; i += p * 2) {
+            for (int i = p * p; i &lt; N; i += p * 2) {
                 isPrime[i] = false;
             }
         }
@@ -290,7 +281,7 @@
             sieve[p] = 2;
         for (int p = 3; p &lt; N; p += 2)
             if (sieve[p] != p) continue;
-            for (int i = p * 3; i &lt; N; i += p * 2) {
+            for (int i = p * p; i &lt; N; i += p * 2) {
                 sieve[i] = p;
 
         List<Integer> getFactors(int n) {
@@ -305,12 +296,24 @@
 
         </textarea>
         <script
-                 src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+                src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
         </script>
         <script>
             var slideshow = remark.create({
                 highlightStyle: 'magula'
             });
+        </script>
+        <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js">
+        </script>
+        <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/contrib/auto-render.min.js">
+        </script>
+        <script>
+            renderMathInElement(document.body, {delimiters: [
+                {left: "$", right: "$", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]});
         </script>
     </body>
 </html>
